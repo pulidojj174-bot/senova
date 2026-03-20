@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ContactTemplate } from "../../shared/templates/contact-template/contact-template";
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  imports: [ContactTemplate],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Contact {}

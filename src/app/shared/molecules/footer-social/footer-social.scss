@@ -1,0 +1,43 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.footer-social {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: v.$spacing-md;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: v.color(green-800);
+    color: v.color(green-400);
+    transition:
+      color v.$transitionDuration v.$transitionEasing,
+      background v.$transitionDuration v.$transitionEasing,
+      transform v.$transitionDuration v.$transitionEasing;
+
+    &:hover {
+      background: v.color(primary);
+      color: v.color(text-light);
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.color(green-300);
+      outline-offset: 2px;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,40 +1,9 @@
-@use "variables.scss" as variables;
-@use "mixins.scss" as mixins;
+@use "variables" as variables;
+@use "mixins" as mixins;
 
-.wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px 24px;
-
-  @include mixins.desktop {
-    padding-top: 80px;
-  }
-}
-
-body {
-  background: variables.color(background);
-}
-
-.container--fluid {
-  padding: 0px 24px;
-
-  @include mixins.desktop {
-    margin: 0 auto;
-    padding: 0px;
-  }
-}
-
-.text--secondary {
-  color: variables.color(secondary);
-}
-
-.container--payment .p-inputnumber {
-  width: 100%;
-}
-
+// ======================
+// BASE / RESET
+// ======================
 
 :root {
   font-family: variables.$font-family-primary;
@@ -42,20 +11,51 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  --focus-ring: 0 0 0 0.2rem #{variables.color(green-300)};
 }
 
 body {
   font-family: variables.$font-family-primary;
+  background: variables.color(background);
   margin: 0;
   padding: 0;
   min-height: 100vh;
-
-  // Define el valor de la sombra para el foco
-  --focus-ring: 0 0 0 0.2rem #{variables.color(green-300)};
 }
 
-// Utility class for secondary font
+// ======================
+// LAYOUT UTILITARIOS
+// ======================
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+
+  @include mixins.desktop {
+    padding-top: 80px;
+  }
+}
+
+.container--fluid {
+  padding: 0 24px;
+
+  @include mixins.desktop {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+// ======================
+// TIPOGRAFÍA UTILITARIA
+// ======================
+
+.text--secondary {
+  color: variables.color(secondary);
+}
+
 .font-secondary {
   font-family: variables.$font-family-secondary;
 }

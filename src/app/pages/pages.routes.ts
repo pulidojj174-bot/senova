@@ -1,19 +1,13 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
-import { LayoutHome } from './layot/layout-home/layout-home';
-import { Project } from './project/project';
-import { Contact } from './contact/contact';
-import { About } from './about/about';
-import { Category } from './category/category';
 
 export const pagesRoutes: Routes = [
   {
     path: '',
-    component: LayoutHome,
+    loadComponent: () => import('./layout/layout-home/layout-home').then(m => m.LayoutHome),
     children: [
       {
         path: '',
-        component: Home,
+        loadComponent: () => import('./home/home').then(m => m.Home),
         data: {
           title: 'Inicio | Senova',
           description:
@@ -32,8 +26,8 @@ export const pagesRoutes: Routes = [
         },
       },
       {
-        path: 'projectos',
-        component: Project,
+        path: 'proyectos',
+        loadComponent: () => import('./project/project').then(m => m.Project),
         data: {
           title: 'Proyectos | Senova',
           description:
@@ -53,7 +47,7 @@ export const pagesRoutes: Routes = [
       },
       {
         path: 'contacto',
-        component: Contact,
+        loadComponent: () => import('./contact/contact').then(m => m.Contact),
         data: {
           title: 'Contacto | Senova',
           description:
@@ -73,7 +67,7 @@ export const pagesRoutes: Routes = [
       },
       {
         path: 'nosotros',
-        component: About,
+        loadComponent: () => import('./about/about').then(m => m.About),
         data: {
           title: 'Nosotros | Senova',
           description:
@@ -93,7 +87,7 @@ export const pagesRoutes: Routes = [
       },
       {
         path: 'categorias',
-        component: Category,
+        loadComponent: () => import('./category/category').then(m => m.Category),
         data: {
           title: 'Categorías | Senova',
           description:

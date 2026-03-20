@@ -5,14 +5,15 @@ $colors: (
   // ==========================
   // BRANDING PRINCIPAL
   // ==========================
-  primary: #649D47,       // Verde natural (marca base)
-  secondary: #C9853D,     // Terracota (calidez / lujo accesible)
+  primary: #649D47,       // Verde base (marca)
+  secondary: #C9853D,     // Terracota (acción / CTA)
   accent: #93A292,        // Verde grisáceo elegante
-  background: #F7E7CE,    // Beige cálido (ambientes)
+  highlight: #D9A476,     // Dorado suave (toque premium)
+  background: #F7E7CE,    // Fondo cálido
   surface: #FFFFFF,       // Tarjetas
 
   // ==========================
-  // ESCALA VERDE (NATURAL / MARCA)
+  // ESCALA VERDE (DERIVADA)
   // ==========================
   green-50: #F4F7F2,
   green-100: #DCE8D8,
@@ -28,31 +29,67 @@ $colors: (
   // ==========================
   // TIERRA / MADERA
   // ==========================
-  wood-100: #F7E7CE,
+  wood-50: #F9F2E7,
+  wood-100: #F7E7CE, // background base
   wood-200: #E8CFA3,
-  wood-300: #D2B47C,
+  wood-300: #D9A476, // highlight
   wood-400: #C9853D, // secondary
   wood-500: #A96B2F,
-  wood-600: #7F4625,
+  wood-600: #7F4625, // madera profunda
 
   // ==========================
   // TEXTO
   // ==========================
   text-dark: #1F2937,
+  text-darker: #0B0E0B,
   text-light: #FFFFFF,
   text-muted: #6B7280,
 
   // ==========================
-  // ESTADOS
+  // ESTADOS (UX/UI)
   // ==========================
   success: #22C55E,
   error: #DC2626,
   warning: #F59E0B,
   info: #2563EB,
+
+  // ==========================
+  // SUPERFICIES / FONDOS
+  // ==========================
+  bg-main: #F7E7CE,
+  bg-alt: #2D3B2A,
+  bg-soft: #F4F7F2,
+  bg-glass: rgba(100, 157, 71, 0.08),
+
+  // ==========================
+  // BORDES / DIVISORES
+  // ==========================
+  border-subtle: #E5DFD8,
+  border-strong: #D1C7BB,
+
+  // ==========================
+  // INTERACCIONES
+  // ==========================
+  hover-primary: rgba(100, 157, 71, 0.12),
+  hover-secondary: rgba(201, 133, 61, 0.15),
+  active-primary: #4F7D38,
+
+  // ==========================
+  // NEUTROS
+  // ==========================
+  gray-100: #F9FAFB,
+  gray-200: #E5E7EB,
+  gray-300: #D1D5DB,
+  gray-400: #9CA3AF,
+  gray-500: #6B7280,
+  gray-700: #374151,
+  gray-900: #111827,
+
+  text-light-muted: rgba(255, 255, 255, 0.7),
 );
 
-@function color($color-name) {
-  @return map.get($colors, $color-name);
+@function color($key) {
+  @return map.get($colors, $key);
 }
 
 // Breakpoints - Mobile First
@@ -101,13 +138,6 @@ $spacing-xxl: 48px;
 $z-dropdown: 1000;
 $z-modal: 1050;
 $z-tooltip: 1070;
-
-// PrimeNG compatibility (si los necesitas)
-/* $prime-mixins1: 992px;
-$prime-mixins2: 991px; */
-$scale: 14px;
-
-
 
 // Typography
 $font-family-primary: 'Poiret One', cursive;

@@ -1,0 +1,52 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.navbar {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid v.color(border-subtle);
+  backdrop-filter: blur(16px);
+  transition: box-shadow 0.3s v.$transitionEasing;
+
+  &__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: v.$container-max-width;
+    margin: 0 auto;
+    padding: v.$spacing-md v.$spacing-lg;
+
+    @include m.desktop() {
+      padding: v.$spacing-sm v.$spacing-lg;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: v.color(surface);
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.35s v.$transitionEasing,
+      box-shadow 0.35s v.$transitionEasing;
+    box-shadow: none;
+
+    &--open {
+      max-height: 400px;
+      padding: v.$spacing-sm v.$spacing-lg v.$spacing-md;
+      box-shadow: 0 8px 24px rgba(31, 41, 55, 0.1);
+    }
+
+    @include m.desktop() {
+      position: static;
+      max-height: none;
+      overflow: visible;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+}

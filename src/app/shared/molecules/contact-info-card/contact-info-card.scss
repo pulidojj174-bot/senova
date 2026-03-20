@@ -1,0 +1,85 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.contact-card {
+  background: v.color(surface);
+  border: 1px solid v.color(border-subtle);
+  border-radius: v.$borderRadius;
+  padding: v.$spacing-xl v.$spacing-lg;
+  text-align: center;
+  transition:
+    border-color v.$transitionDuration v.$transitionEasing,
+    box-shadow v.$transitionDuration v.$transitionEasing,
+    transform v.$transitionDuration v.$transitionEasing;
+
+  &:hover {
+    border-color: v.color(green-300);
+    box-shadow: 0 4px 20px rgba(100, 157, 71, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &__icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: v.color(green-50);
+    margin-bottom: v.$spacing-md;
+    transition: background v.$transitionDuration v.$transitionEasing;
+  }
+
+  &:hover &__icon-wrapper {
+    background: v.color(green-100);
+  }
+
+  &__icon {
+    color: v.color(primary);
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-text;
+    color: v.color(green-700);
+    margin: 0 0 v.$spacing-sm;
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-sm;
+    color: v.color(text-dark);
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.7;
+
+    & + & {
+      margin-top: v.$spacing-xxs;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: v.$spacing-md;
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-sm;
+    font-weight: 600;
+    color: v.color(primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition:
+      color v.$transitionDuration v.$transitionEasing,
+      border-color v.$transitionDuration v.$transitionEasing;
+
+    &:hover {
+      color: v.color(green-600);
+      border-bottom-color: v.color(green-600);
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.color(primary);
+      outline-offset: 2px;
+      border-radius: v.$borderRadius-sm;
+    }
+  }
+}

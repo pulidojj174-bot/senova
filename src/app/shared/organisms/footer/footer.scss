@@ -1,0 +1,66 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.footer {
+  background: v.color(green-900);
+  padding: v.$spacing-xxl v.$spacing-lg;
+
+  &__container {
+    max-width: v.$container-max-width;
+    margin: 0 auto;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-xl;
+
+    @include m.tablet() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.desktop() {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__col {
+    &--brand {
+      @include m.tablet() {
+        grid-column: span 2;
+      }
+
+      @include m.desktop() {
+        grid-column: span 1;
+      }
+    }
+  }
+
+  &__social-title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(green-200);
+    margin: 0 0 v.$spacing-md;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid v.color(green-800);
+    margin: v.$spacing-xl 0;
+  }
+
+  &__bottom {
+    text-align: center;
+  }
+
+  &__copyright {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-ultra-sm;
+    color: v.color(green-400);
+    margin: 0;
+  }
+}
