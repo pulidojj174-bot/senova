@@ -1,98 +1,54 @@
 @use "sass:map";
 
 $colors: (
+
   // ==========================
   // BRANDING PRINCIPAL
   // ==========================
-  primary: #728F70,
-  // Fondo principal (green-500)
-  secondary: #C2410C,
-  // Botones, CTAs (naranja)
-  accent: #cedacd,
-  // Detalles, iconos, hover
-  background: #728F70,
-  // Alias para fondo
-  surface: #FFFFFF,
-  // Tarjetas, cajas sobre el verde
+  primary: #649D47,       // Verde natural (marca base)
+  secondary: #C9853D,     // Terracota (calidez / lujo accesible)
+  accent: #93A292,        // Verde grisáceo elegante
+  background: #F7E7CE,    // Beige cálido (ambientes)
+  surface: #FFFFFF,       // Tarjetas
 
   // ==========================
-  // ESCALA DE VERDES (BRAND SCALE)
+  // ESCALA VERDE (NATURAL / MARCA)
   // ==========================
-  green-50: #F1F4F1,
-  green-100: #D7E0D7,
-  green-200: #BECBBD,
-  green-300: #A5B7A4,
-  green-400: #96AB95,
-  green-500: #728F70,
-  // Primary
-  green-600: #5D755C,
-  green-700: #495B48,
-  green-800: #344234,
-  green-900: #20281F,
-  green-950: #0B0E0B,
+  green-50: #F4F7F2,
+  green-100: #DCE8D8,
+  green-200: #C4D9BE,
+  green-300: #A9C9A2,
+  green-400: #85B37E,
+  green-500: #649D47, // primary
+  green-600: #4F7D38,
+  green-700: #3B5D2A,
+  green-800: #273D1C,
+  green-900: #141F0E,
+
+  // ==========================
+  // TIERRA / MADERA
+  // ==========================
+  wood-100: #F7E7CE,
+  wood-200: #E8CFA3,
+  wood-300: #D2B47C,
+  wood-400: #C9853D, // secondary
+  wood-500: #A96B2F,
+  wood-600: #7F4625,
 
   // ==========================
   // TEXTO
   // ==========================
-  text-light: #FFFFFF,
-  // Texto sobre fondo verde
-  text-light-muted: #F2F2F2,
-  // Texto claro, menos contraste
   text-dark: #1F2937,
-  text-darker: #0B0E0B,
-  // Texto sobre fondo blanco
-  text-muted: #475569,
-  // Texto secundario oscuro
+  text-light: #FFFFFF,
+  text-muted: #6B7280,
 
   // ==========================
-  // NEUTROS
+  // ESTADOS
   // ==========================
-  black1: #000000,
-  black2: #0B0D39,
-  black3: #1F2937,
-  // slate-900
-  gray0: #CBD5E1,
-  gray1: #DBDBE6,
-  gray2: #DCDCE3,
-  gray3: #CFE2DB,
-  gray4: #707070,
-  gray5: #748F99,
-  gray6: #64748B,
-  gray7: #475569,
-  // slate-600
-  gray8: #94A3B8,
-  // slate-400
-  white1: #FFFFFF,
-  white2: #FEFEFE,
-  white3: #F2F2F2,
-
-  // ==========================
-  // BACKGROUNDS
-  // ==========================
-  bg-main: #728F70,
-  // Fondo principal
-  bg-alt: #F1F4F1,
-  // Alterno claro
-  bg-gray1: #F1F5F9,
-  // slate-50
-  bg-gray2: #E2E8F0,
-  // slate-200
-
-  // ==========================
-  // ACCIONES Y ESTADOS
-  // ==========================
-  success: #21B836,
+  success: #22C55E,
   error: #DC2626,
   warning: #F59E0B,
   info: #2563EB,
-
-  // ==========================
-  // AZULES (INTERACTIVOS)
-  // ==========================
-  blue400: #60a5fa,
-  blue600: #2563eb,
-  blue700: #1d4ed8,
-  custom-cursor-blue: #3182ce
 );
 
 @function color($color-name) {
