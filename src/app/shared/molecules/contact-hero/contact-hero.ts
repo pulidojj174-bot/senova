@@ -10,6 +10,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 export class ContactHero {
   readonly title = input('Contáctanos');
   readonly description = input(
-    'Estamos aquí para ayudarte. Encuentra toda la información que necesitas para ponerte en contacto con nosotros.'
+    'Cada proyecto comienza con una conversación. Cuéntanos tu visión y crearemos juntos el espacio que siempre imaginaste.'
   );
 }

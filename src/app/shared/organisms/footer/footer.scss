@@ -2,7 +2,7 @@
 @use 'mixins' as m;
 
 .footer {
-  background: v.color(green-900);
+  background: v.color(text-dark);
   padding: v.$spacing-xxl v.$spacing-lg;
 
   &__container {
@@ -39,7 +39,7 @@
   &__social-title {
     font-family: v.$font-family-primary;
     font-size: v.$font-size-text-mobile;
-    color: v.color(green-200);
+    color: v.color(primary);
     margin: 0 0 v.$spacing-md;
 
     @include m.tablet() {
@@ -49,7 +49,7 @@
 
   &__divider {
     border: none;
-    border-top: 1px solid v.color(green-800);
+    border-top: 1px solid v.color(secondary);
     margin: v.$spacing-xl 0;
   }
 
@@ -60,7 +60,7 @@
   &__copyright {
     font-family: v.$font-family-secondary;
     font-size: v.$font-size-ultra-sm;
-    color: v.color(green-400);
+    color: v.color(accent-blue);
     margin: 0;
   }
 }

@@ -5,7 +5,7 @@
   &__title {
     font-family: v.$font-family-primary;
     font-size: v.$font-size-text-mobile;
-    color: v.color(green-200);
+    color: v.color(primary);
     margin: 0 0 v.$spacing-md;
     letter-spacing: 0.02em;
 
@@ -26,16 +26,16 @@
   &__link {
     font-family: v.$font-family-secondary;
     font-size: v.$font-size-sm;
-    color: v.color(green-400);
+    color: v.color(accent-blue);
     text-decoration: none;
     transition: color v.$transitionDuration v.$transitionEasing;
 
     &:hover {
-      color: v.color(green-100);
+      color: v.color(accent-green);
     }
 
     &:focus-visible {
-      outline: 2px solid v.color(green-300);
+      outline: 2px solid v.color(accent-green);
       outline-offset: 2px;
       border-radius: v.$borderRadius-sm;
     }

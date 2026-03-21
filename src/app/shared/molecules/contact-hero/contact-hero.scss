@@ -12,7 +12,7 @@
   &__title {
     font-family: v.$font-family-primary;
     font-size: v.$font-size-title-mobile;
-    color: v.color(green-700);
+    color: v.color(secondary);
     margin: 0 0 v.$spacing-md;
 
     @include m.tablet() {
@@ -27,11 +27,10 @@
   &__description {
     font-family: v.$font-family-secondary;
     font-size: v.$font-size-text-mobile;
-    color: v.color(text-dark);
+    color: v.color(secondary);
     line-height: 1.7;
     margin: 0 auto;
     max-width: 600px;
-    opacity: 0.75;
 
     @include m.tablet() {
       font-size: v.$font-size-text;

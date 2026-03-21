@@ -18,7 +18,7 @@
   transition: background v.$transitionDuration v.$transitionEasing;
 
   &:hover {
-    background: v.color(green-50);
+    background: v.color(accent-light);
   }
 
   @include m.desktop() {
@@ -26,7 +26,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid v.color(primary);
+    outline: 2px solid v.color(accent-green);
     outline-offset: 2px;
     border-radius: v.$borderRadius-sm;
   }
@@ -35,7 +35,7 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: v.color(green-700);
+    background: v.color(secondary);
     border-radius: 2px;
     transition:
       transform 0.3s v.$transitionEasing,

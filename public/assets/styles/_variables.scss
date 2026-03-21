@@ -1,91 +1,16 @@
 @use "sass:map";
 
 $colors: (
+  primary: #DAC9AA,        // Fondo principal
+  secondary: #73726E,      // Texto principal / base
+  accent-blue: #A5B3C0,    // Elementos UI
+  accent-light: #B3C8CC,   // Fondos suaves / hover
+  accent-green: #649D47,   // Botones / CTA
 
-  // ==========================
-  // BRANDING PRINCIPAL
-  // ==========================
-  primary: #649D47,       // Verde base (marca)
-  secondary: #C9853D,     // Terracota (acción / CTA)
-  accent: #93A292,        // Verde grisáceo elegante
-  highlight: #D9A476,     // Dorado suave (toque premium)
-  background: #F7E7CE,    // Fondo cálido
-  surface: #FFFFFF,       // Tarjetas
-
-  // ==========================
-  // ESCALA VERDE (DERIVADA)
-  // ==========================
-  green-50: #F4F7F2,
-  green-100: #DCE8D8,
-  green-200: #C4D9BE,
-  green-300: #A9C9A2,
-  green-400: #85B37E,
-  green-500: #649D47, // primary
-  green-600: #4F7D38,
-  green-700: #3B5D2A,
-  green-800: #273D1C,
-  green-900: #141F0E,
-
-  // ==========================
-  // TIERRA / MADERA
-  // ==========================
-  wood-50: #F9F2E7,
-  wood-100: #F7E7CE, // background base
-  wood-200: #E8CFA3,
-  wood-300: #D9A476, // highlight
-  wood-400: #C9853D, // secondary
-  wood-500: #A96B2F,
-  wood-600: #7F4625, // madera profunda
-
-  // ==========================
-  // TEXTO
-  // ==========================
-  text-dark: #1F2937,
-  text-darker: #0B0E0B,
+  // Variantes útiles
+  text-dark: #201B18,
   text-light: #FFFFFF,
-  text-muted: #6B7280,
-
-  // ==========================
-  // ESTADOS (UX/UI)
-  // ==========================
-  success: #22C55E,
-  error: #DC2626,
-  warning: #F59E0B,
-  info: #2563EB,
-
-  // ==========================
-  // SUPERFICIES / FONDOS
-  // ==========================
-  bg-main: #F7E7CE,
-  bg-alt: #2D3B2A,
-  bg-soft: #F4F7F2,
-  bg-glass: rgba(100, 157, 71, 0.08),
-
-  // ==========================
-  // BORDES / DIVISORES
-  // ==========================
-  border-subtle: #E5DFD8,
-  border-strong: #D1C7BB,
-
-  // ==========================
-  // INTERACCIONES
-  // ==========================
-  hover-primary: rgba(100, 157, 71, 0.12),
-  hover-secondary: rgba(201, 133, 61, 0.15),
-  active-primary: #4F7D38,
-
-  // ==========================
-  // NEUTROS
-  // ==========================
-  gray-100: #F9FAFB,
-  gray-200: #E5E7EB,
-  gray-300: #D1D5DB,
-  gray-400: #9CA3AF,
-  gray-500: #6B7280,
-  gray-700: #374151,
-  gray-900: #111827,
-
-  text-light-muted: rgba(255, 255, 255, 0.7),
+  border: #E5E0D8
 );
 
 @function color($key) {
@@ -117,9 +42,9 @@ $margin-box: 0px;
 $container-max-width: 1200px;
 
 // UI Elements
-$borderRadius: 12px;
-$borderRadius-sm: 6px;
-$borderRadius-lg: 16px;
+$borderRadius: 8px;
+$borderRadius-sm: 4px;
+$borderRadius-lg: 12px;
 
 // Transitions
 $transitionDuration: 0.2s;
@@ -140,5 +65,5 @@ $z-modal: 1050;
 $z-tooltip: 1070;
 
 // Typography
-$font-family-primary: 'Poiret One', cursive;
-$font-family-secondary: system-ui, -apple-system, sans-serif;
+$font-family-primary: 'Playfair Display', 'Georgia', serif;
+$font-family-secondary: 'Source Sans 3', system-ui, -apple-system, sans-serif;

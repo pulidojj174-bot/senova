@@ -3,7 +3,7 @@
 
 .navbar {
   background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid v.color(border-subtle);
+  border-bottom: 1px solid v.color(border);
   backdrop-filter: blur(16px);
   transition: box-shadow 0.3s v.$transitionEasing;
 
@@ -26,7 +26,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: v.color(surface);
+    background: v.color(text-light);
     max-height: 0;
     overflow: hidden;
     transition:

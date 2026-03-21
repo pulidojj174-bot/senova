@@ -11,12 +11,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --focus-ring: 0 0 0 0.2rem #{variables.color(green-300)};
+  --focus-ring: 0 0 0 0.2rem #{variables.color(accent-green)};
 }
 
 body {
   font-family: variables.$font-family-primary;
-  background: variables.color(background);
+  background: variables.color(primary);
   margin: 0;
   padding: 0;
   min-height: 100vh;

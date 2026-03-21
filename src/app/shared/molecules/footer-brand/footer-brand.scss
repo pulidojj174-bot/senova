@@ -5,14 +5,14 @@
   &__name {
     font-family: v.$font-family-primary;
     font-size: v.$font-size-subtitle;
-    color: v.color(green-300);
+    color: v.color(accent-green);
     margin: 0 0 v.$spacing-sm;
   }
 
   &__description {
     font-family: v.$font-family-secondary;
     font-size: v.$font-size-sm;
-    color: v.color(green-400);
+    color: v.color(accent-blue);
     line-height: 1.7;
     margin: 0;
     max-width: 300px;

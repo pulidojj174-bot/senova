@@ -11,9 +11,9 @@
   &__name {
     font-family: v.$font-family-primary;
     font-size: 1.35rem;
-    color: v.color(green-700);
+    color: v.color(secondary);
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
     transition: color v.$transitionDuration v.$transitionEasing;
 
     @include m.tablet() {
@@ -22,11 +22,11 @@
   }
 
   &:hover .navbar-brand__name {
-    color: v.color(primary);
+    color: v.color(accent-green);
   }
 
   &:focus-visible {
-    outline: 2px solid v.color(primary);
+    outline: 2px solid v.color(accent-green);
     outline-offset: 4px;
     border-radius: v.$borderRadius-sm;
   }

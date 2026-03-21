@@ -9,18 +9,18 @@ export const pagesRoutes: Routes = [
         path: '',
         loadComponent: () => import('./home/home').then(m => m.Home),
         data: {
-          title: 'Inicio | Senova',
+          title: 'Inicio | Senova — Carpintería de Lujo y Diseño de Interiores',
           description:
-            'Bienvenido a Senova, tu plataforma de gestión de proyectos y tareas. Organiza tu trabajo de manera eficiente y colabora con tu equipo en tiempo real.',
-          keywords: 'Senova, gestión de proyectos, tareas, colaboración, productividad',
-          ogTitle: 'Inicio | Senova',
+            'Senova transforma espacios con carpintería de lujo a medida. Cocinas, vestidores, mobiliario y diseño de interiores con maderas nobles y acabados artesanales.',
+          keywords: 'carpintería de lujo, diseño de interiores, mobiliario a medida, cocinas de lujo, vestidores, Senova',
+          ogTitle: 'Senova — Carpintería de Lujo y Diseño de Interiores',
           ogDescription:
-            'Bienvenido a Senova, tu plataforma de gestión de proyectos y tareas. Organiza tu trabajo de manera eficiente y colabora con tu equipo en tiempo real.',
+            'Transformamos espacios con carpintería de lujo a medida. Cocinas, vestidores, mobiliario y diseño de interiores con maderas nobles y acabados artesanales.',
           ogImage: 'https://senova.com/assets/images/og-image.png',
           ogUrl: 'https://senova.com/',
-          twitterTitle: 'Inicio | Senova',
+          twitterTitle: 'Senova — Carpintería de Lujo y Diseño de Interiores',
           twitterDescription:
-            'Bienvenido a Senova, tu plataforma de gestión de proyectos y tareas. Organiza tu trabajo de manera eficiente y colabora con tu equipo en tiempo real.',
+            'Transformamos espacios con carpintería de lujo a medida. Cocinas, vestidores, mobiliario y diseño de interiores con maderas nobles y acabados artesanales.',
           twitterImage: 'https://senova.com/assets/images/twitter-image.png',
           twitterUrl: 'https://senova.com/',
         },
@@ -31,16 +31,16 @@ export const pagesRoutes: Routes = [
         data: {
           title: 'Proyectos | Senova',
           description:
-            'Explora nuestros proyectos destacados en Senova. Descubre cómo nuestras soluciones innovadoras pueden ayudarte a gestionar tus proyectos de manera eficiente y alcanzar el éxito.',
-          keywords: 'Senova, proyectos, gestión de proyectos, soluciones innovadoras, éxito',
+            'Descubre nuestros proyectos de carpintería de lujo y diseño de interiores. Cada espacio refleja artesanía excepcional, materiales nobles y atención al detalle.',
+          keywords: 'proyectos carpintería, diseño interiores lujo, portfolio, mobiliario a medida, Senova',
           ogTitle: 'Proyectos | Senova',
           ogDescription:
-            'Explora nuestros proyectos destacados en Senova. Descubre cómo nuestras soluciones innovadoras pueden ayudarte a gestionar tus proyectos de manera eficiente y alcanzar el éxito.',
+            'Descubre nuestros proyectos de carpintería de lujo y diseño de interiores. Artesanía excepcional y atención al detalle en cada espacio.',
           ogImage: 'https://senova.com/assets/images/og-projects.png',
           ogUrl: 'https://senova.com/proyectos',
           twitterTitle: 'Proyectos | Senova',
           twitterDescription:
-            'Explora nuestros proyectos destacados en Senova. Descubre cómo nuestras soluciones innovadoras pueden ayudarte a gestionar tus proyectos de manera eficiente y alcanzar el éxito.',
+            'Descubre nuestros proyectos de carpintería de lujo y diseño de interiores. Artesanía excepcional y atención al detalle en cada espacio.',
           twitterImage: 'https://senova.com/assets/images/twitter-projects.png',
           twitterUrl: 'https://senova.com/proyectos',
         }
@@ -51,16 +51,16 @@ export const pagesRoutes: Routes = [
         data: {
           title: 'Contacto | Senova',
           description:
-            '¿Tienes preguntas o necesitas más información sobre Senova? Contáctanos hoy mismo y nuestro equipo estará encantado de ayudarte. Estamos aquí para brindarte el soporte que necesitas.',
-          keywords: 'Senova, contacto, preguntas, información, soporte',
+            'Solicita una consulta personalizada para tu proyecto de carpintería de lujo o diseño de interiores. Visita nuestro showroom o contáctanos para comenzar a crear tu espacio ideal.',
+          keywords: 'contacto Senova, consulta diseño interiores, presupuesto carpintería, showroom',
           ogTitle: 'Contacto | Senova',
           ogDescription:
-            '¿Tienes preguntas o necesitas más información sobre Senova? Contáctanos hoy mismo y nuestro equipo estará encantado de ayudarte. Estamos aquí para brindarte el soporte que necesitas.',
+            'Solicita una consulta personalizada para tu proyecto de carpintería de lujo o diseño de interiores. Visita nuestro showroom.',
           ogImage: 'https://senova.com/assets/images/og-contact.png',
           ogUrl: 'https://senova.com/contacto',
           twitterTitle: 'Contacto | Senova',
           twitterDescription:
-            '¿Tienes preguntas o necesitas más información sobre Senova? Contáctanos hoy mismo y nuestro equipo estará encantado de ayudarte. Estamos aquí para brindarte el soporte que necesitas.',
+            'Solicita una consulta personalizada para tu proyecto de carpintería de lujo o diseño de interiores.',
           twitterImage: 'https://senova.com/assets/images/twitter-contact.png',
           twitterUrl: 'https://senova.com/contacto',
         }
@@ -71,16 +71,16 @@ export const pagesRoutes: Routes = [
         data: {
           title: 'Nosotros | Senova',
           description:
-            'Conoce más sobre Senova, nuestra misión, visión y valores. Descubre cómo estamos comprometidos en ofrecer soluciones innovadoras para la gestión de proyectos y tareas, ayudando a nuestros clientes a alcanzar el éxito.',
-          keywords: 'Senova, nosotros, misión, visión, valores, soluciones innovadoras, gestión de proyectos',
+            'Conoce la historia, filosofía y equipo de Senova. Artesanos especializados en carpintería de lujo con décadas de experiencia transformando espacios con maderas nobles y diseño excepcional.',
+          keywords: 'sobre Senova, artesanos carpintería, historia, equipo diseño interiores, filosofía',
           ogTitle: 'Nosotros | Senova',
           ogDescription:
-            'Conoce más sobre Senova, nuestra misión, visión y valores. Descubre cómo estamos comprometidos en ofrecer soluciones innovadoras para la gestión de proyectos y tareas, ayudando a nuestros clientes a alcanzar el éxito.',
+            'Artesanos especializados en carpintería de lujo con décadas de experiencia transformando espacios con maderas nobles y diseño excepcional.',
           ogImage: 'https://senova.com/assets/images/og-about.png',
           ogUrl: 'https://senova.com/nosotros',
           twitterTitle: 'Nosotros | Senova',
           twitterDescription:
-            'Conoce más sobre Senova, nuestra misión, visión y valores. Descubre cómo estamos comprometidos en ofrecer soluciones innovadoras para la gestión de proyectos y tareas, ayudando a nuestros clientes a alcanzar el éxito.',
+            'Artesanos especializados en carpintería de lujo con décadas de experiencia transformando espacios con maderas nobles y diseño excepcional.',
           twitterImage: 'https://senova.com/assets/images/twitter-about.png',
           twitterUrl: 'https://senova.com/nosotros',
         }
@@ -89,18 +89,18 @@ export const pagesRoutes: Routes = [
         path: 'categorias',
         loadComponent: () => import('./category/category').then(m => m.Category),
         data: {
-          title: 'Categorías | Senova',
+          title: 'Especialidades | Senova',
           description:
-            'Explora nuestras categorías de servicios en Senova. Descubre cómo nuestras soluciones innovadoras pueden ayudarte a gestionar tus proyectos de manera eficiente y alcanzar el éxito.',
-          keywords: 'Senova, categorías, servicios, soluciones innovadoras, gestión de proyectos, éxito',
-          ogTitle: 'Categorías | Senova',
+            'Explora nuestras especialidades: cocinas de lujo, vestidores a medida, bibliotecas, panelados, mobiliario de autor y más. Cada pieza es una obra de artesanía en madera.',
+          keywords: 'especialidades carpintería, cocinas lujo, vestidores medida, bibliotecas, mobiliario autor, Senova',
+          ogTitle: 'Especialidades | Senova',
           ogDescription:
-            'Explora nuestras categorías de servicios en Senova. Descubre cómo nuestras soluciones innovadoras pueden ayudarte a gestionar tus proyectos de manera eficiente y alcanzar el éxito.',
+            'Cocinas de lujo, vestidores a medida, bibliotecas, panelados y mobiliario de autor. Cada pieza es una obra de artesanía en madera.',
           ogImage: 'https://senova.com/assets/images/og-categories.png',
           ogUrl: 'https://senova.com/categorias',
-          twitterTitle: 'Categorías | Senova',
+          twitterTitle: 'Especialidades | Senova',
           twitterDescription:
-            'Explora nuestras categorías de servicios en Senova. Descubre cómo nuestras soluciones innovadoras pueden ayudarte a gestionar tus proyectos de manera eficiente y alcanzar el éxito.',
+            'Cocinas de lujo, vestidores a medida, bibliotecas, panelados y mobiliario de autor. Artesanía excepcional.',
           twitterImage: 'https://senova.com/assets/images/twitter-categories.png',
           twitterUrl: 'https://senova.com/categorias',
         }

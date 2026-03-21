@@ -17,21 +17,21 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: v.color(green-800);
-    color: v.color(green-400);
+    background: v.color(secondary);
+    color: v.color(accent-blue);
     transition:
       color v.$transitionDuration v.$transitionEasing,
       background v.$transitionDuration v.$transitionEasing,
       transform v.$transitionDuration v.$transitionEasing;
 
     &:hover {
-      background: v.color(primary);
-      color: v.color(text-light);
+      background: v.color(accent-green);
+      color: v.color(text-dark);
       transform: translateY(-2px);
     }
 
     &:focus-visible {
-      outline: 2px solid v.color(green-300);
+      outline: 2px solid v.color(accent-green);
       outline-offset: 2px;
     }
   }
