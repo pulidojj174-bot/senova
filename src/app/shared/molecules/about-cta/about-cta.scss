@@ -1,0 +1,122 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-cta {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-lg;
+  text-align: center;
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-xl;
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-md;
+
+    @include m.tablet() {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: v.$spacing-sm;
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    font-weight: 600;
+    text-decoration: none;
+    padding: v.$spacing-md v.$spacing-xl;
+    border-radius: v.$borderRadius;
+    transition:
+      background v.$transitionDuration v.$transitionEasing,
+      transform v.$transitionDuration v.$transitionEasing,
+      box-shadow v.$transitionDuration v.$transitionEasing;
+    min-width: 220px;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+
+    &--primary {
+      background: v.color(accent-green);
+      color: v.color(text-light);
+      position: relative;
+      overflow: hidden;
+
+      // Shimmer sweep on hover
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(100, 157, 71, 0.4);
+
+        &::after {
+          left: 100%;
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+
+      &:focus-visible {
+        outline: 2px solid v.color(accent-green);
+        outline-offset: 4px;
+      }
+    }
+
+    &--secondary {
+      background: v.color(text-light);
+      color: v.color(accent-green);
+      border: 2px solid v.color(accent-green);
+
+      &:hover {
+        background: v.color(accent-green);
+        color: v.color(text-light);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 24px rgba(100, 157, 71, 0.25);
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+
+      &:focus-visible {
+        outline: 2px solid v.color(accent-green);
+        outline-offset: 4px;
+      }
+    }
+  }
+
+  &__whatsapp-icon {
+    flex-shrink: 0;
+  }
+}

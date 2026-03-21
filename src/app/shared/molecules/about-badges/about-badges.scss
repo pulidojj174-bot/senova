@@ -1,0 +1,65 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-badges {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-lg;
+  text-align: center;
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-lg;
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.8;
+    margin: 0 auto v.$spacing-md;
+    max-width: 700px;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: v.$spacing-sm;
+    list-style: none;
+    margin: v.$spacing-xl 0 0;
+    padding: 0;
+  }
+
+  &__badge {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-sm;
+    font-weight: 600;
+    color: v.color(text-dark);
+    background: v.color(accent-light);
+    padding: v.$spacing-xs v.$spacing-md;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+    cursor: default;
+    transition:
+      background 0.3s v.$transitionEasing,
+      transform 0.3s v.$transitionEasing,
+      box-shadow 0.3s v.$transitionEasing;
+
+    &:hover {
+      background: v.color(accent-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

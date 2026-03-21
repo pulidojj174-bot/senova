@@ -1,0 +1,132 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-section {
+  // Decorative dividers between sections
+  > *:not(:first-child):not(.about-section__essence):not(.about-section__differentiator) {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, v.color(accent-blue), v.color(primary));
+      margin: 0 auto v.$spacing-lg;
+      border-radius: 2px;
+      transform: scaleX(0);
+      animation: lineGrow 0.7s v.$transitionEasing 0.2s forwards;
+    }
+  }
+
+  &__essence {
+    background: v.color(accent-light);
+    position: relative;
+    overflow: hidden;
+
+    // Subtle animated accent bar at top
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        v.color(accent-blue),
+        v.color(accent-green),
+        transparent
+      );
+      background-size: 200% 100%;
+      animation: shimmer 4s linear infinite;
+    }
+  }
+
+  &__values {
+    max-width: v.$container-max-width;
+    margin: 0 auto;
+    padding: v.$spacing-xxl v.$spacing-lg;
+    text-align: center;
+  }
+
+  &__values-title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-xl;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: v.color(accent-green);
+      margin: v.$spacing-md auto 0;
+      border-radius: 2px;
+      transform: scaleX(0);
+      animation: lineGrow 0.6s v.$transitionEasing 0.5s forwards;
+    }
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-lg;
+
+    @include m.tablet() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__differentiator {
+    background: v.color(text-dark);
+    position: relative;
+    overflow: hidden;
+
+    // Top accent line matching essence section
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        v.color(accent-green),
+        v.color(accent-blue),
+        transparent
+      );
+      background-size: 200% 100%;
+      animation: shimmer 4s linear infinite;
+    }
+
+    ::ng-deep .about-services__title {
+      color: v.color(text-light);
+    }
+
+    ::ng-deep .about-services__item {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: v.color(text-light);
+
+      &:hover {
+        border-color: v.color(accent-green);
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 20px rgba(100, 157, 71, 0.2);
+      }
+    }
+
+    ::ng-deep .about-services__icon {
+      color: v.color(accent-green);
+    }
+  }
+}

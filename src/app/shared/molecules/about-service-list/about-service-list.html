@@ -1,0 +1,18 @@
+<section class="about-services" [attr.aria-labelledby]="sectionId()">
+  <h2 [id]="sectionId()" class="about-services__title" appScrollReveal="fade-up">{{ title() }}</h2>
+
+  @if (description()) {
+    <p class="about-services__description" appScrollReveal="fade-up" [delay]="1">{{ description() }}</p>
+  }
+
+  <ul class="about-services__list" role="list">
+    @for (item of items(); track item) {
+      <li class="about-services__item" appScrollReveal="fade-left" [delay]="$index + 1">
+        <svg class="about-services__icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+        </svg>
+        <span>{{ item }}</span>
+      </li>
+    }
+  </ul>
+</section>

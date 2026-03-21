@@ -1,0 +1,74 @@
+<div class="about-section">
+  <!-- 1. Hero -->
+  <app-about-hero />
+
+  <!-- 2. Quiénes Somos -->
+  <app-about-text-block
+    sectionId="about-who"
+    title="Quiénes somos"
+    [paragraphs]="whoWeAre"
+    imageSrc="assets/images/about-workshop.jpg"
+    imageAlt="Taller de carpintería Senova"
+    imagePosition="right"
+  />
+
+  <!-- 3. Nuestra Esencia -->
+  <div class="about-section__essence">
+    <app-about-badges
+      sectionId="about-essence"
+      title="Nuestra esencia"
+      [description]="essenceDescription"
+      [badges]="essenceBadges"
+    />
+  </div>
+
+  <!-- 4. Qué Hacemos -->
+  <app-about-service-list
+    sectionId="about-services"
+    title="Qué hacemos"
+    description="Ofrecemos un servicio integral que acompaña a nuestros clientes en todo el proceso de transformación de sus espacios:"
+    [items]="services"
+  />
+
+  <!-- 5. Nuestra Promesa de Valor -->
+  <section class="about-section__values" aria-labelledby="about-values-title">
+    <h2 id="about-values-title" class="about-section__values-title" appScrollReveal="fade-up">
+      Nuestro compromiso contigo
+    </h2>
+    <div class="about-section__values-grid">
+      @for (card of valueCards; track card.title) {
+        <app-about-value-card [card]="card" appScrollReveal="fade-up" [delay]="$index + 1" />
+      }
+    </div>
+  </section>
+
+  <!-- 6. Nuestra Filosofía -->
+  <app-about-quote
+    [paragraphs]="philosophyParagraphs"
+    highlight="Diseñamos más que muebles… creamos experiencias."
+    imageSrc="assets/images/about-philosophy.jpg"
+    imageAlt="Sala moderna diseñada por Senova"
+  />
+
+  <!-- 7. Para Quién Trabajamos -->
+  <app-about-text-block
+    sectionId="about-clients"
+    title="Nuestros clientes"
+    [paragraphs]="clientsParagraphs"
+    imageSrc="assets/images/about-clients.jpg"
+    imageAlt="Hogar moderno diseñado por Senova"
+    imagePosition="left"
+  />
+
+  <!-- 8. Diferenciador -->
+  <div class="about-section__differentiator">
+    <app-about-service-list
+      sectionId="about-why"
+      title="¿Por qué elegirnos?"
+      [items]="differentiators"
+    />
+  </div>
+
+  <!-- 9. CTA -->
+  <app-about-cta />
+</div>

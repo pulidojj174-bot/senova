@@ -1,0 +1,85 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-services {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-lg;
+  text-align: center;
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-lg;
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__description {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.7;
+    margin: 0 auto v.$spacing-xl;
+    max-width: 700px;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-md;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-md;
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    text-align: left;
+    padding: v.$spacing-md v.$spacing-lg;
+    background: v.color(text-light);
+    border-radius: v.$borderRadius;
+    border: 1px solid v.color(border);
+    transition:
+      border-color 0.3s v.$transitionEasing,
+      box-shadow 0.3s v.$transitionEasing,
+      transform 0.3s v.$transitionEasing,
+      background 0.3s v.$transitionEasing;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+
+    &:hover {
+      border-color: v.color(accent-green);
+      box-shadow: 0 4px 20px rgba(100, 157, 71, 0.12);
+      transform: translateX(8px);
+      background: rgba(100, 157, 71, 0.03);
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: v.color(accent-green);
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s v.$transitionEasing;
+
+    .about-services__item:hover & {
+      animation: iconBounce 0.5s v.$transitionEasing;
+    }
+  }
+}

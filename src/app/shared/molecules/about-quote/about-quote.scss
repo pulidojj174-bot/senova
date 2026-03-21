@@ -1,0 +1,106 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-quote-wrapper {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-lg;
+
+  &--with-image {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-xl;
+    align-items: center;
+
+    @include m.tablet() {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__image-wrapper {
+    border-radius: v.$borderRadius-lg;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    transition:
+      box-shadow 0.4s v.$transitionEasing,
+      transform 0.4s v.$transitionEasing;
+
+    &:hover {
+      box-shadow: 0 8px 36px rgba(0, 0, 0, 0.16);
+      transform: translateY(-4px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    animation: kenBurns 18s ease-in-out infinite alternate;
+  }
+}
+
+.about-quote {
+  text-align: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  .about-quote-wrapper--with-image & {
+    text-align: left;
+  }
+
+  &::before {
+    content: '\201C';
+    display: block;
+    font-family: v.$font-family-primary;
+    font-size: 5rem;
+    color: v.color(accent-blue);
+    line-height: 1;
+    margin-bottom: v.$spacing-sm;
+    animation: quoteFloat 4s ease-in-out infinite;
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    font-style: italic;
+    color: v.color(secondary);
+    line-height: 1.9;
+    margin: 0 0 v.$spacing-md;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__highlight {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-text;
+    font-style: normal;
+    color: v.color(accent-green);
+    font-weight: 700;
+    margin: v.$spacing-lg 0 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: v.color(accent-green);
+      margin-top: v.$spacing-sm;
+      border-radius: 2px;
+      transform: scaleX(0);
+      animation: lineGrow 0.6s v.$transitionEasing 0.8s forwards;
+
+      .about-quote-wrapper--with-image & {
+        margin-left: 0;
+      }
+    }
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+}

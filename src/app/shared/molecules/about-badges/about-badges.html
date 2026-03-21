@@ -1,0 +1,13 @@
+<section class="about-badges" [attr.aria-labelledby]="sectionId()">
+  <h2 [id]="sectionId()" class="about-badges__title" appScrollReveal="fade-up">{{ title() }}</h2>
+
+  @for (text of description(); track $index) {
+    <p class="about-badges__text" appScrollReveal="fade-up" [delay]="$index + 1">{{ text }}</p>
+  }
+
+  <ul class="about-badges__list" role="list">
+    @for (badge of badges(); track badge) {
+      <li class="about-badges__badge" appScrollReveal="zoom-in" [delay]="$index + 3">{{ badge }}</li>
+    }
+  </ul>
+</section>

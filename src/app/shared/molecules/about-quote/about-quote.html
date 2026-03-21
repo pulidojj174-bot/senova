@@ -1,0 +1,22 @@
+<div class="about-quote-wrapper" [class.about-quote-wrapper--with-image]="!!imageSrc()">
+  <blockquote class="about-quote" appScrollReveal="zoom-in">
+    @for (paragraph of paragraphs(); track $index) {
+      <p class="about-quote__text">{{ paragraph }}</p>
+    }
+    @if (highlight()) {
+      <p class="about-quote__highlight">{{ highlight() }}</p>
+    }
+  </blockquote>
+
+  @if (imageSrc()) {
+    <div class="about-quote-wrapper__image-wrapper" appScrollReveal="fade-left" [delay]="1">
+      <img
+        [ngSrc]="imageSrc()!"
+        [alt]="imageAlt()"
+        width="800"
+        height="500"
+        class="about-quote-wrapper__image"
+      />
+    </div>
+  }
+</div>

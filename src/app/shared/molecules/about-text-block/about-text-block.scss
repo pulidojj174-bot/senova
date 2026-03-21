@@ -1,0 +1,118 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-text-block {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-lg;
+
+  &--with-image {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-xl;
+    align-items: center;
+
+    @include m.tablet() {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &--image-left {
+    .about-text-block__image-wrapper {
+      @include m.tablet() {
+        order: -1;
+      }
+    }
+  }
+
+  &__content {
+    .about-text-block--with-image & {
+      text-align: left;
+
+      .about-text-block__title {
+        text-align: left;
+
+        &::after {
+          margin-left: 0;
+        }
+      }
+
+      .about-text-block__text {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-lg;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: v.color(accent-green);
+      margin: v.$spacing-sm auto 0;
+      border-radius: 2px;
+      transform: scaleX(0);
+      animation: lineGrow 0.6s v.$transitionEasing 0.4s forwards;
+    }
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.8;
+    margin: 0 0 v.$spacing-md;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image-wrapper {
+    border-radius: v.$borderRadius-lg;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    transition:
+      box-shadow 0.4s v.$transitionEasing,
+      transform 0.4s v.$transitionEasing;
+
+    &:hover {
+      box-shadow: 0 8px 36px rgba(0, 0, 0, 0.16);
+      transform: translateY(-4px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 6s ease;
+
+    .about-text-block__image-wrapper:hover & {
+      transform: scale(1.04);
+    }
+  }
+}

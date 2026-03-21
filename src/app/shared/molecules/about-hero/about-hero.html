@@ -1,0 +1,16 @@
+<section class="about-hero" aria-labelledby="about-hero-title">
+  <div class="about-hero__content">
+    <h1 id="about-hero-title" class="about-hero__title" appScrollReveal="fade-up">{{ title() }}</h1>
+    <p class="about-hero__subtitle" appScrollReveal="fade-up" [delay]="1">{{ subtitle() }}</p>
+  </div>
+  <div class="about-hero__image-wrapper" appScrollReveal="zoom-in" [delay]="2">
+    <img
+      ngSrc="assets/images/about-hero.jpg"
+      alt="Interior de un hogar moderno diseñado por Senova"
+      width="1200"
+      height="600"
+      priority
+      class="about-hero__image"
+    />
+  </div>
+</section>

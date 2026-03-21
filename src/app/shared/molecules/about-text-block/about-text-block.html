@@ -1,0 +1,27 @@
+<section
+  class="about-text-block"
+  [class.about-text-block--with-image]="!!imageSrc()"
+  [class.about-text-block--image-left]="imageSrc() && imagePosition() === 'left'"
+  [attr.aria-labelledby]="title() ? sectionId() : null"
+>
+  <div class="about-text-block__content">
+    @if (title()) {
+      <h2 [id]="sectionId()" class="about-text-block__title" appScrollReveal="fade-up">{{ title() }}</h2>
+    }
+    @for (paragraph of paragraphs(); track $index) {
+      <p class="about-text-block__text" appScrollReveal="fade-up" [delay]="$index + 1">{{ paragraph }}</p>
+    }
+  </div>
+
+  @if (imageSrc()) {
+    <div class="about-text-block__image-wrapper" appScrollReveal="fade-left" [delay]="2">
+      <img
+        [ngSrc]="imageSrc()!"
+        [alt]="imageAlt()"
+        width="800"
+        height="600"
+        class="about-text-block__image"
+      />
+    </div>
+  }
+</section>
