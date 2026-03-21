@@ -1,19 +1,19 @@
 <footer class="footer" role="contentinfo">
   <div class="footer__container">
     <div class="footer__top">
-      <div class="footer__col footer__col--brand">
+      <div class="footer__col footer__col--brand" appScrollReveal="fade-right">
         <app-footer-brand />
       </div>
 
-      <div class="footer__col">
+      <div class="footer__col" appScrollReveal="fade-up" [delay]="1">
         <app-footer-nav title="Servicios" [links]="clubLinks" />
       </div>
 
-      <div class="footer__col">
+      <div class="footer__col" appScrollReveal="fade-up" [delay]="2">
         <app-footer-nav title="Información" [links]="infoLinks" />
       </div>
 
-      <div class="footer__col">
+      <div class="footer__col" appScrollReveal="fade-left" [delay]="3">
         <h3 class="footer__social-title">Síguenos</h3>
         <app-footer-social [links]="socialLinks" />
       </div>

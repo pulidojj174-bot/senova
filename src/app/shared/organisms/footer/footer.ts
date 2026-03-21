@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FooterBrand } from '../../molecules/footer-brand/footer-brand';
 import { FooterNav, FooterLink } from '../../molecules/footer-nav/footer-nav';
 import { FooterSocial, SocialLink } from '../../molecules/footer-social/footer-social';
+import { ScrollReveal } from '../../../core/directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-footer',
-  imports: [FooterBrand, FooterNav, FooterSocial],
+  imports: [FooterBrand, FooterNav, FooterSocial, ScrollReveal],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

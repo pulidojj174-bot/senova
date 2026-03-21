@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ScrollReveal } from '../../../core/directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-contact-hero',
-  imports: [],
+  imports: [ScrollReveal],
   templateUrl: './contact-hero.html',
   styleUrl: './contact-hero.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

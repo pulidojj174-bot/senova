@@ -1,0 +1,73 @@
+@use 'variables' as v;
+
+// ======================
+// SCROLL REVEAL ANIMATIONS
+// ======================
+
+// Base state: hidden before scroll trigger
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity 0.7s v.$transitionEasing,
+    transform 0.7s v.$transitionEasing;
+}
+
+// Revealed state
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+// Respects reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// ======================
+// REVEAL DIRECTIONS
+// ======================
+
+// Fade up (default)
+[data-reveal="fade-up"] {
+  transform: translateY(40px);
+}
+
+// Fade down
+[data-reveal="fade-down"] {
+  transform: translateY(-40px);
+}
+
+// Fade left
+[data-reveal="fade-left"] {
+  transform: translateX(40px);
+}
+
+// Fade right
+[data-reveal="fade-right"] {
+  transform: translateX(-40px);
+}
+
+// Scale up
+[data-reveal="zoom-in"] {
+  transform: scale(0.92);
+}
+
+// Fade only (no movement)
+[data-reveal="fade"] {
+  transform: none;
+}
+
+// ======================
+// STAGGER DELAYS (for card grids)
+// ======================
+
+@for $i from 1 through 8 {
+  [data-reveal-delay="#{$i}"] {
+    transition-delay: #{$i * 0.1}s;
+  }
+}
