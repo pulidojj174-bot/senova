@@ -16,12 +16,12 @@ export const pagesRoutes: Routes = [
           ogTitle: 'Senova — Carpintería de Lujo y Diseño de Interiores',
           ogDescription:
             'Transformamos espacios con carpintería de lujo a medida. Cocinas, vestidores, mobiliario y diseño de interiores con maderas nobles y acabados artesanales.',
-          ogImage: 'https://senova.com/assets/images/og-image.png',
+          ogImage: 'https://senova.com/assets/images/home-hero-1.jpg',
           ogUrl: 'https://senova.com/',
           twitterTitle: 'Senova — Carpintería de Lujo y Diseño de Interiores',
           twitterDescription:
             'Transformamos espacios con carpintería de lujo a medida. Cocinas, vestidores, mobiliario y diseño de interiores con maderas nobles y acabados artesanales.',
-          twitterImage: 'https://senova.com/assets/images/twitter-image.png',
+          twitterImage: 'https://senova.com/assets/images/home-hero-1.jpg',
           twitterUrl: 'https://senova.com/',
         },
       },
@@ -36,12 +36,12 @@ export const pagesRoutes: Routes = [
           ogTitle: 'Proyectos | Senova',
           ogDescription:
             'Descubre nuestros proyectos de carpintería de lujo y diseño de interiores. Artesanía excepcional y atención al detalle en cada espacio.',
-          ogImage: 'https://senova.com/assets/images/og-projects.png',
+          ogImage: 'https://senova.com/assets/images/project-sala-after.jpg',
           ogUrl: 'https://senova.com/proyectos',
           twitterTitle: 'Proyectos | Senova',
           twitterDescription:
             'Descubre nuestros proyectos de carpintería de lujo y diseño de interiores. Artesanía excepcional y atención al detalle en cada espacio.',
-          twitterImage: 'https://senova.com/assets/images/twitter-projects.png',
+          twitterImage: 'https://senova.com/assets/images/project-sala-after.jpg',
           twitterUrl: 'https://senova.com/proyectos',
         }
       },
@@ -56,12 +56,12 @@ export const pagesRoutes: Routes = [
           ogTitle: 'Contacto | Senova',
           ogDescription:
             'Solicita una consulta personalizada para tu proyecto de carpintería de lujo o diseño de interiores. Visita nuestro showroom.',
-          ogImage: 'https://senova.com/assets/images/og-contact.png',
+          ogImage: 'https://senova.com/assets/images/home-hero-2.jpg',
           ogUrl: 'https://senova.com/contacto',
           twitterTitle: 'Contacto | Senova',
           twitterDescription:
             'Solicita una consulta personalizada para tu proyecto de carpintería de lujo o diseño de interiores.',
-          twitterImage: 'https://senova.com/assets/images/twitter-contact.png',
+          twitterImage: 'https://senova.com/assets/images/home-hero-2.jpg',
           twitterUrl: 'https://senova.com/contacto',
         }
       },
@@ -76,12 +76,12 @@ export const pagesRoutes: Routes = [
           ogTitle: 'Nosotros | Senova',
           ogDescription:
             'Artesanos especializados en carpintería de lujo con décadas de experiencia transformando espacios con maderas nobles y diseño excepcional.',
-          ogImage: 'https://senova.com/assets/images/og-about.png',
+          ogImage: 'https://senova.com/assets/images/about-hero.jpg',
           ogUrl: 'https://senova.com/nosotros',
           twitterTitle: 'Nosotros | Senova',
           twitterDescription:
             'Artesanos especializados en carpintería de lujo con décadas de experiencia transformando espacios con maderas nobles y diseño excepcional.',
-          twitterImage: 'https://senova.com/assets/images/twitter-about.png',
+          twitterImage: 'https://senova.com/assets/images/about-hero.jpg',
           twitterUrl: 'https://senova.com/nosotros',
         }
       },
@@ -96,12 +96,12 @@ export const pagesRoutes: Routes = [
           ogTitle: 'Especialidades | Senova',
           ogDescription:
             'Cocinas de lujo, vestidores a medida, bibliotecas, panelados y mobiliario de autor. Cada pieza es una obra de artesanía en madera.',
-          ogImage: 'https://senova.com/assets/images/og-categories.png',
+          ogImage: 'https://senova.com/assets/images/specialty-1.jpg',
           ogUrl: 'https://senova.com/categorias',
           twitterTitle: 'Especialidades | Senova',
           twitterDescription:
             'Cocinas de lujo, vestidores a medida, bibliotecas, panelados y mobiliario de autor. Artesanía excepcional.',
-          twitterImage: 'https://senova.com/assets/images/twitter-categories.png',
+          twitterImage: 'https://senova.com/assets/images/specialty-1.jpg',
           twitterUrl: 'https://senova.com/categorias',
         }
       }
