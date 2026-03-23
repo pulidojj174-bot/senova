@@ -1,0 +1,68 @@
+<section class="specialty-accordion" aria-labelledby="specialties-title">
+  <h2 id="specialties-title" class="specialty-accordion__section-title" appScrollReveal="fade-up">
+    {{ sectionTitle() }}
+  </h2>
+
+  <div class="specialty-accordion__list">
+    @for (specialty of specialties(); track specialty.id) {
+      <div
+        class="accordion-item"
+        [class.accordion-item--active]="activeId() === specialty.id"
+        appScrollReveal="fade-up"
+        [delay]="$index + 1"
+      >
+        <h3 class="accordion-item__heading">
+          <button
+            class="accordion-item__header"
+            [attr.id]="'header-' + specialty.id"
+            [attr.aria-expanded]="activeId() === specialty.id"
+            [attr.aria-controls]="'panel-' + specialty.id"
+            (click)="toggle(specialty.id)"
+          >
+            <span class="accordion-item__icon" aria-hidden="true">{{ specialty.icon }}</span>
+            <span class="accordion-item__title">{{ specialty.title }}</span>
+            <svg
+              class="accordion-item__chevron"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              width="24"
+              height="24"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        </h3>
+
+        <div
+          class="accordion-item__panel"
+          [attr.id]="'panel-' + specialty.id"
+          role="region"
+          [attr.aria-labelledby]="'header-' + specialty.id"
+        >
+          <div class="accordion-item__panel-inner">
+            <div class="accordion-item__content">
+              @for (p of specialty.paragraphs; track $index) {
+                <p class="accordion-item__text">{{ p }}</p>
+              }
+            </div>
+            <div class="accordion-item__gallery">
+              @for (image of specialty.images; track $index) {
+                <div
+                  class="accordion-item__gallery-item"
+                  [class.accordion-item__gallery-item--featured]="$index === 0"
+                >
+                  <img [ngSrc]="image.src" [alt]="image.alt" fill />
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

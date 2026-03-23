@@ -1,0 +1,233 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.specialty-accordion {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-lg;
+
+  &__section-title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    text-align: center;
+    margin: 0 0 v.$spacing-xl;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: v.color(accent-green);
+      margin: v.$spacing-md auto 0;
+      border-radius: 2px;
+      transform: scaleX(0);
+      animation: lineGrow 0.6s v.$transitionEasing 0.4s forwards;
+    }
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-sm;
+  }
+}
+
+// ========================
+// ACCORDION ITEM
+// ========================
+
+.accordion-item {
+  border: 1px solid v.color(border);
+  border-radius: v.$borderRadius-lg;
+  overflow: hidden;
+  background: v.color(text-light);
+  transition:
+    border-color 0.4s v.$transitionEasing,
+    box-shadow 0.4s v.$transitionEasing;
+
+  &--active {
+    border-color: v.color(accent-green);
+    box-shadow: 0 4px 24px rgba(100, 157, 71, 0.1);
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: v.$spacing-lg;
+    gap: v.$spacing-md;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: v.$font-family-primary;
+    text-align: left;
+    color: v.color(text-dark);
+    transition: background 0.3s v.$transitionEasing;
+
+    @include m.tablet() {
+      padding: v.$spacing-lg v.$spacing-xl;
+    }
+
+    &:hover {
+      background: rgba(218, 201, 170, 0.12);
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.color(accent-green);
+      outline-offset: -2px;
+      border-radius: v.$borderRadius-lg;
+    }
+
+    .accordion-item--active & {
+      background: rgba(218, 201, 170, 0.08);
+    }
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  &__title {
+    flex: 1;
+    font-size: v.$font-size-text-mobile;
+    font-weight: 600;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__chevron {
+    flex-shrink: 0;
+    color: v.color(secondary);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .accordion-item--active & {
+      transform: rotate(180deg);
+      color: v.color(accent-green);
+    }
+  }
+
+  // ========================
+  // PANEL (animated expand/collapse)
+  // ========================
+
+  &__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .accordion-item--active & {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__panel-inner {
+    overflow: hidden;
+  }
+
+  &__content {
+    padding: 0 v.$spacing-lg v.$spacing-lg;
+
+    @include m.tablet() {
+      padding: 0 v.$spacing-xl v.$spacing-lg;
+    }
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.8;
+    margin: 0 0 v.$spacing-md;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // ========================
+  // IMAGE GALLERY (asymmetric masonry grid)
+  // ========================
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+    gap: v.$spacing-sm;
+    padding: v.$spacing-md v.$spacing-lg v.$spacing-xl;
+
+    @include m.tablet() {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 180px;
+      gap: v.$spacing-md;
+      padding: v.$spacing-md v.$spacing-xl v.$spacing-xl;
+    }
+
+    @include m.desktop() {
+      grid-template-columns: repeat(5, 1fr);
+      grid-auto-rows: 170px;
+    }
+  }
+
+  &__gallery-item {
+    position: relative;
+    border-radius: v.$borderRadius;
+    overflow: hidden;
+    transition:
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.3s v.$transitionEasing;
+
+    // First image is larger (featured)
+    &--featured {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      z-index: 1;
+    }
+
+    // Subtle overlay on hover
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.2));
+      opacity: 0;
+      transition: opacity 0.3s v.$transitionEasing;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    img {
+      object-fit: cover;
+      transition: transform 6s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.08);
+    }
+  }
+}

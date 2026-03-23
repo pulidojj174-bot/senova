@@ -1,0 +1,28 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.specialty-section {
+  &__approach {
+    background: v.color(accent-light);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        v.color(accent-blue),
+        v.color(accent-green),
+        transparent
+      );
+      background-size: 200% 100%;
+      animation: shimmer 4s linear infinite;
+    }
+  }
+}

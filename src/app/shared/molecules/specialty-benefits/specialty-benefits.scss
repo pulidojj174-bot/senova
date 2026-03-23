@@ -1,0 +1,97 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.specialty-benefits {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-lg;
+  text-align: center;
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-xl;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: v.color(accent-green);
+      margin: v.$spacing-md auto 0;
+      border-radius: 2px;
+      transform: scaleX(0);
+      animation: lineGrow 0.6s v.$transitionEasing 0.4s forwards;
+    }
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-lg;
+
+    @include m.tablet() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include m.desktop() {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
+
+.benefit-card {
+  background: v.color(text-light);
+  border: 1px solid v.color(border);
+  border-radius: v.$borderRadius-lg;
+  padding: v.$spacing-xl v.$spacing-lg;
+  text-align: center;
+  transition:
+    border-color 0.4s v.$transitionEasing,
+    box-shadow 0.4s v.$transitionEasing,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    border-color: v.color(accent-green);
+    box-shadow: 0 8px 32px rgba(100, 157, 71, 0.1);
+    transform: translateY(-4px);
+  }
+
+  &__icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: v.color(accent-light);
+    margin-bottom: v.$spacing-md;
+    transition: background 0.3s v.$transitionEasing;
+  }
+
+  &:hover &__icon-wrapper {
+    background: v.color(accent-blue);
+    animation: iconBounce 0.6s v.$transitionEasing;
+  }
+
+  &__icon {
+    color: v.color(accent-green);
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.6;
+    margin: 0;
+
+    @include m.tablet() {
+      font-size: v.$font-size-sm;
+    }
+  }
+}

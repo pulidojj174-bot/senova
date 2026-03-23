@@ -1,0 +1,18 @@
+<section class="specialty-benefits" aria-labelledby="benefits-title">
+  <h2 id="benefits-title" class="specialty-benefits__title" appScrollReveal="fade-up">
+    {{ title() }}
+  </h2>
+
+  <div class="specialty-benefits__grid">
+    @for (benefit of benefits(); track benefit.text) {
+      <div class="benefit-card" appScrollReveal="fade-up" [delay]="$index + 1">
+        <div class="benefit-card__icon-wrapper" aria-hidden="true">
+          <svg class="benefit-card__icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+            <path [attr.d]="benefit.icon" />
+          </svg>
+        </div>
+        <p class="benefit-card__text">{{ benefit.text }}</p>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,54 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.specialty-hero {
+  text-align: center;
+  padding: v.$spacing-xxl v.$spacing-md;
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+
+  @include m.tablet() {
+    padding: v.$spacing-xxl * 1.5 v.$spacing-xl;
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-lg;
+    line-height: 1.15;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, v.color(accent-green), v.color(accent-blue));
+      margin: v.$spacing-md auto 0;
+      border-radius: 2px;
+      transform: scaleX(0);
+      animation: lineGrow 0.8s v.$transitionEasing 0.6s forwards;
+    }
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+
+    @include m.desktop() {
+      font-size: v.$font-size-title;
+    }
+  }
+
+  &__subtitle {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 700px;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+}

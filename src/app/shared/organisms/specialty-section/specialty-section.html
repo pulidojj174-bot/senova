@@ -1,0 +1,41 @@
+<div class="specialty-section">
+  <!-- 1. Hero -->
+  <app-specialty-hero />
+
+  <!-- 2. Introducción -->
+  <app-about-text-block
+    sectionId="specialty-intro"
+    [paragraphs]="introParagraphs"
+  />
+
+  <!-- 3. Especialidades (Acordeón) -->
+  <app-specialty-accordion [specialties]="specialties" />
+
+  <!-- 4. Nuestro Enfoque -->
+  <div class="specialty-section__approach">
+    <app-about-service-list
+      sectionId="specialty-approach"
+      title="Más que diseño, una experiencia completa"
+      description="Nuestro proceso está diseñado para brindarte tranquilidad, control y resultados excepcionales:"
+      [items]="approachItems"
+    />
+  </div>
+
+  <!-- 5. Beneficios -->
+  <app-specialty-benefits [benefits]="benefits" />
+
+  <!-- 6. Filosofía de diseño -->
+  <app-about-quote
+    [paragraphs]="philosophyParagraphs"
+    highlight="Diseñamos espacios que mejoran tu calidad de vida."
+  />
+
+  <!-- 7. CTA -->
+  <app-about-cta
+    title="¿Quieres transformar tu espacio con un diseño único?"
+    primaryLabel="Cotiza tu proyecto"
+    primaryLink="/contacto"
+    secondaryLabel="Agenda una asesoría"
+    secondaryLink="https://wa.me/34912345678"
+  />
+</div>
