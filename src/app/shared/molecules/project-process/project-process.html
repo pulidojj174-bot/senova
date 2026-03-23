@@ -1,0 +1,20 @@
+<section class="project-process" [attr.aria-labelledby]="sectionId()">
+  <h2 [id]="sectionId()" class="project-process__title" appScrollReveal="fade-up">
+    {{ title() }}
+  </h2>
+  <p class="project-process__description" appScrollReveal="fade-up" [delay]="1">
+    {{ description() }}
+  </p>
+
+  <ol class="project-process__timeline" role="list">
+    @for (step of steps(); track step.number) {
+      <li class="project-process__step" appScrollReveal="fade-up" [delay]="$index + 1">
+        <span class="project-process__number" aria-hidden="true">{{ step.number }}</span>
+        <div class="project-process__content">
+          <h3 class="project-process__step-title">{{ step.title }}</h3>
+          <p class="project-process__step-desc">{{ step.description }}</p>
+        </div>
+      </li>
+    }
+  </ol>
+</section>

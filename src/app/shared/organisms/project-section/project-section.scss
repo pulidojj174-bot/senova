@@ -1,0 +1,23 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.project-section {
+  &__intro {
+    background: v.color(text-light);
+  }
+
+  &__projects {
+    padding: v.$spacing-xl 0;
+  }
+
+  &__divider {
+    max-width: v.$container-max-width;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid v.color(border);
+
+    @include m.tablet() {
+      margin: v.$spacing-md auto;
+    }
+  }
+}

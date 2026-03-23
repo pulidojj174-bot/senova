@@ -1,0 +1,39 @@
+<!-- 1. Hero -->
+<app-project-hero />
+
+<!-- 2. Introducción -->
+<div class="project-section__intro">
+  <app-about-text-block
+    sectionId="project-intro"
+    title="Nuestros Proyectos"
+    [paragraphs]="introParagraphs"
+  />
+</div>
+
+<!-- 3. Proyectos Destacados -->
+<div class="project-section__projects" aria-label="Proyectos destacados">
+  @for (project of projects; track project.id) {
+    <app-project-card
+      [project]="project"
+      [reverse]="$index % 2 !== 0"
+    />
+    @if (!$last) {
+      <hr class="project-section__divider" aria-hidden="true" />
+    }
+  }
+</div>
+
+<!-- 4. Nuestro Proceso -->
+<app-project-process [steps]="processSteps" />
+
+<!-- 5. Impacto del Antes y Después -->
+<app-project-impact />
+
+<!-- 6. CTA -->
+<app-about-cta
+  title="¿Quieres que tu espacio sea el próximo proyecto?"
+  primaryLabel="Cotiza tu proyecto"
+  primaryLink="/contacto"
+  secondaryLabel="Agenda una asesoría"
+  secondaryLink="/contacto"
+/>

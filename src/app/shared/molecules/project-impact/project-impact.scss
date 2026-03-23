@@ -1,0 +1,81 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.project-impact {
+  background: linear-gradient(135deg, v.color(accent-light), v.color(primary));
+  padding: v.$spacing-xxl v.$spacing-md;
+  position: relative;
+  overflow: hidden;
+
+  // Shimmer bar top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      v.color(accent-green) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 4s linear infinite;
+  }
+
+  @include m.tablet() {
+    padding: v.$spacing-xxl * 1.5 v.$spacing-lg;
+  }
+
+  &__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-lg;
+  }
+
+  &__icon {
+    color: v.color(accent-green);
+    filter: drop-shadow(0 2px 8px rgba(100, 157, 71, 0.3));
+    animation: float 4s ease-in-out infinite;
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0;
+    line-height: 1.2;
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.8;
+    margin: 0;
+    max-width: 640px;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__bar {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, v.color(accent-green), v.color(accent-blue));
+    border-radius: 2px;
+    transform: scaleX(0);
+    animation: lineGrow 0.8s v.$transitionEasing 0.4s forwards;
+  }
+}
