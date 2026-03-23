@@ -1,0 +1,36 @@
+<!-- 1. Hero Carrusel -->
+<app-home-hero [slides]="heroSlides" />
+
+<!-- 2. Quiénes Somos -->
+<app-home-about />
+
+<!-- 3. Especialidades -->
+<app-home-specialties [cards]="specialtyCards" />
+
+<!-- 4. Proyectos Antes/Después -->
+<div class="home-section__projects-bg">
+  <app-home-projects [projects]="featuredProjects" />
+</div>
+
+<!-- 5. Proceso -->
+<app-project-process
+  sectionId="home-process"
+  title="Nuestro Proceso"
+  description="Cada transformación sigue un proceso estructurado que garantiza resultados de alta calidad."
+  [steps]="processSteps"
+/>
+
+<!-- 6. Promesa de Valor -->
+<app-home-value [items]="valueProps" />
+
+<!-- 7. Contenido tipo Instagram -->
+<app-home-content [items]="contentItems" />
+
+<!-- 8. CTA Final -->
+<app-about-cta
+  title="¿Listo para transformar tu espacio?"
+  primaryLabel="Cotiza tu proyecto"
+  primaryLink="/contacto"
+  secondaryLabel="Agenda una asesoría"
+  secondaryLink="/contacto"
+/>

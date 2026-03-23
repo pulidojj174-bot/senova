@@ -1,0 +1,7 @@
+@use 'variables' as v;
+
+.home-section {
+  &__projects-bg {
+    background: v.color(text-light);
+  }
+}

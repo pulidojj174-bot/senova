@@ -1,0 +1,34 @@
+<section class="home-specialties" aria-labelledby="home-specialties-title">
+  <h2 id="home-specialties-title" class="home-specialties__title" appScrollReveal="fade-up">
+    {{ title() }}
+  </h2>
+
+  <div class="home-specialties__grid">
+    @for (card of cards(); track card.title) {
+      <a
+        class="home-specialties__card"
+        [href]="card.link"
+        appScrollReveal="fade-up"
+        [delay]="$index + 1"
+      >
+        <div class="home-specialties__image-wrapper">
+          <img
+            [ngSrc]="card.image"
+            [alt]="card.alt"
+            width="600"
+            height="400"
+            class="home-specialties__image"
+          />
+        </div>
+        <div class="home-specialties__card-overlay">
+          <h3 class="home-specialties__card-title">{{ card.title }}</h3>
+          <span class="home-specialties__card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+              <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+        </div>
+      </a>
+    }
+  </div>
+</section>

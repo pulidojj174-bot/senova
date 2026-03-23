@@ -1,0 +1,40 @@
+<section class="home-projects" aria-labelledby="home-projects-title">
+  <h2 id="home-projects-title" class="home-projects__title" appScrollReveal="fade-up">
+    {{ title() }}
+  </h2>
+  <p class="home-projects__subtitle" appScrollReveal="fade-up" [delay]="1">
+    {{ subtitle() }}
+  </p>
+
+  <div class="home-projects__grid">
+    @for (project of projects(); track project.id) {
+      <article class="home-projects__card" appScrollReveal="zoom-in" [delay]="$index + 1">
+        <div class="home-projects__labels">
+          <span class="home-projects__label home-projects__label--before">Antes</span>
+          <span class="home-projects__label home-projects__label--after">Después</span>
+        </div>
+        <p-imagecompare
+          class="home-projects__compare"
+          [attr.aria-label]="'Comparar antes y después: ' + project.title"
+        >
+          <ng-template #left>
+            <img [src]="project.beforeImage" [alt]="project.beforeAlt" />
+          </ng-template>
+          <ng-template #right>
+            <img [src]="project.afterImage" [alt]="project.afterAlt" />
+          </ng-template>
+        </p-imagecompare>
+        <h3 class="home-projects__card-title">{{ project.title }}</h3>
+      </article>
+    }
+  </div>
+
+  <div class="home-projects__footer" appScrollReveal="fade-up" [delay]="3">
+    <a class="home-projects__link" [href]="linkHref()">
+      {{ linkLabel() }}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+      </svg>
+    </a>
+  </div>
+</section>

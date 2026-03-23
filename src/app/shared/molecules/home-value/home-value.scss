@@ -1,0 +1,100 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.home-value {
+  background: linear-gradient(135deg, v.color(accent-light), v.color(primary));
+  padding: v.$spacing-xxl v.$spacing-md;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // Shimmer top bar
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, v.color(accent-green) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 4s linear infinite;
+  }
+
+  @include m.tablet() {
+    padding: v.$spacing-xxl * 1.5 v.$spacing-lg;
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-xxl;
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__grid {
+    max-width: v.$container-max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-lg;
+
+    @include m.tablet() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: v.$borderRadius-lg;
+    padding: v.$spacing-xl v.$spacing-lg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-md;
+    transition:
+      transform 0.3s v.$transitionEasing,
+      box-shadow 0.3s v.$transitionEasing;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+
+      .home-value__icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, v.color(primary), v.color(accent-light));
+    border-radius: 50%;
+    transition: transform 0.3s v.$transitionEasing;
+  }
+
+  &__card-title {
+    font-family: v.$font-family-primary;
+    font-size: 1.25rem;
+    color: v.color(text-dark);
+    margin: 0;
+  }
+
+  &__card-text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-sm;
+    color: v.color(secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+}

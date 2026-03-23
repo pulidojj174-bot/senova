@@ -1,0 +1,69 @@
+<section class="home-hero" aria-roledescription="carousel" aria-label="Proyectos destacados">
+  <!-- Slides -->
+  <div class="home-hero__track">
+    @for (slide of slides(); track $index) {
+      <div
+        class="home-hero__slide"
+        [class.home-hero__slide--active]="$index === activeIndex()"
+        role="group"
+        [attr.aria-roledescription]="'slide'"
+        [attr.aria-label]="'Slide ' + ($index + 1) + ' de ' + slides().length"
+        [attr.aria-hidden]="$index !== activeIndex()"
+      >
+        <img
+          [ngSrc]="slide.image"
+          [alt]="slide.alt"
+          fill
+          priority
+          class="home-hero__image"
+        />
+      </div>
+    }
+  </div>
+
+  <!-- Overlay -->
+  <div class="home-hero__overlay">
+    <div class="home-hero__content">
+      <h1 class="home-hero__title">{{ currentSlide().title }}</h1>
+      <p class="home-hero__subtitle">{{ currentSlide().subtitle }}</p>
+      <a class="home-hero__cta" [href]="ctaLink()">{{ ctaLabel() }}</a>
+    </div>
+  </div>
+
+  <!-- Nav arrows -->
+  <button
+    class="home-hero__arrow home-hero__arrow--prev"
+    (click)="prev()"
+    aria-label="Slide anterior"
+    type="button"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+  <button
+    class="home-hero__arrow home-hero__arrow--next"
+    (click)="next()"
+    aria-label="Slide siguiente"
+    type="button"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true">
+      <polyline points="9 6 15 12 9 18" />
+    </svg>
+  </button>
+
+  <!-- Dots -->
+  <div class="home-hero__dots" role="tablist" aria-label="Controles del carrusel">
+    @for (slide of slides(); track $index) {
+      <button
+        class="home-hero__dot"
+        [class.home-hero__dot--active]="$index === activeIndex()"
+        (click)="goTo($index)"
+        role="tab"
+        [attr.aria-selected]="$index === activeIndex()"
+        [attr.aria-label]="'Ir a slide ' + ($index + 1)"
+        type="button"
+      ></button>
+    }
+  </div>
+</section>

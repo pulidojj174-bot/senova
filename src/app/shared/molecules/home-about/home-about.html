@@ -1,0 +1,17 @@
+<section class="home-about" aria-labelledby="home-about-title">
+  <div class="home-about__inner">
+    <h2 id="home-about-title" class="home-about__title" appScrollReveal="fade-up">
+      {{ title() }}
+    </h2>
+    <div class="home-about__bar" aria-hidden="true"></div>
+    <p class="home-about__text" appScrollReveal="fade-up" [delay]="1">
+      {{ text() }}
+    </p>
+    <a class="home-about__link" [href]="linkHref()" appScrollReveal="fade-up" [delay]="2">
+      {{ linkLabel() }}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+      </svg>
+    </a>
+  </div>
+</section>

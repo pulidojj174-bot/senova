@@ -1,0 +1,74 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.home-about {
+  background: v.color(text-light);
+  padding: v.$spacing-xxl v.$spacing-md;
+
+  @include m.tablet() {
+    padding: v.$spacing-xxl * 1.5 v.$spacing-lg;
+  }
+
+  &__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-lg;
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0;
+    line-height: 1.2;
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__bar {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, v.color(accent-green), v.color(accent-blue));
+    border-radius: 2px;
+  }
+
+  &__text {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.8;
+    margin: 0;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: v.$spacing-sm;
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    font-weight: 600;
+    color: v.color(accent-green);
+    text-decoration: none;
+    transition: gap 0.3s v.$transitionEasing;
+
+    &:hover {
+      gap: v.$spacing-md;
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.color(accent-green);
+      outline-offset: 4px;
+      border-radius: v.$borderRadius-sm;
+    }
+  }
+}

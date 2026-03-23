@@ -1,0 +1,215 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.home-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  overflow: hidden;
+
+  // ── Slides track ──
+  &__track {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+
+    &--active {
+      opacity: 1;
+      z-index: 1;
+
+      .home-hero__image {
+        animation: kenBurns 8s ease-in-out forwards;
+      }
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  // ── Dark overlay ──
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+
+  &__content {
+    text-align: center;
+    padding: v.$spacing-lg;
+    max-width: 860px;
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-light);
+    margin: 0 0 v.$spacing-lg;
+    line-height: 1.1;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+
+    @include m.tablet() {
+      font-size: 3rem;
+    }
+
+    @include m.desktop() {
+      font-size: v.$font-size-title;
+    }
+  }
+
+  &__subtitle {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 v.$spacing-xl;
+    line-height: 1.7;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    font-weight: 600;
+    color: v.color(text-light);
+    background: v.color(accent-green);
+    padding: v.$spacing-md v.$spacing-xxl;
+    border-radius: v.$borderRadius;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.3s v.$transitionEasing,
+      box-shadow 0.3s v.$transitionEasing;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(100, 157, 71, 0.5);
+
+      &::after {
+        left: 100%;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.color(text-light);
+      outline-offset: 4px;
+    }
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  // ── Arrows ──
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: v.color(text-light);
+    cursor: pointer;
+    transition:
+      background 0.3s v.$transitionEasing,
+      transform 0.3s v.$transitionEasing;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.color(text-light);
+      outline-offset: 2px;
+    }
+
+    &--prev {
+      left: v.$spacing-md;
+    }
+
+    &--next {
+      right: v.$spacing-md;
+    }
+
+    // Hidden on small mobile
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  // ── Dots ──
+  &__dots {
+    position: absolute;
+    bottom: v.$spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: v.$spacing-sm;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid v.color(text-light);
+    background: transparent;
+    cursor: pointer;
+    transition:
+      background 0.3s v.$transitionEasing,
+      transform 0.3s v.$transitionEasing;
+    padding: 0;
+
+    &--active {
+      background: v.color(text-light);
+      transform: scale(1.2);
+    }
+
+    &:hover:not(.home-hero__dot--active) {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus-visible {
+      outline: 2px solid v.color(accent-green);
+      outline-offset: 2px;
+    }
+  }
+}

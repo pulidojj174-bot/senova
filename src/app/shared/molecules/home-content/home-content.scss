@@ -1,0 +1,131 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.home-content {
+  max-width: v.$container-max-width;
+  margin: 0 auto;
+  padding: v.$spacing-xxl v.$spacing-md;
+  text-align: center;
+
+  @include m.tablet() {
+    padding: v.$spacing-xxl * 1.5 v.$spacing-lg;
+  }
+
+  &__title {
+    font-family: v.$font-family-primary;
+    font-size: v.$font-size-title-mobile;
+    color: v.color(text-dark);
+    margin: 0 0 v.$spacing-md;
+
+    @include m.tablet() {
+      font-size: v.$font-size-subtitle;
+    }
+  }
+
+  &__subtitle {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-text-mobile;
+    color: v.color(secondary);
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto v.$spacing-xxl;
+
+    @include m.tablet() {
+      font-size: v.$font-size-text;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: v.$spacing-md;
+
+    @include m.tablet() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    border-radius: v.$borderRadius-lg;
+    overflow: hidden;
+    background: v.color(text-light);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition:
+      transform 0.4s v.$transitionEasing,
+      box-shadow 0.4s v.$transitionEasing;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+
+      .home-content__image {
+        transform: scale(1.06);
+      }
+
+      .home-content__play {
+        transform: translate(-50%, -50%) scale(1.15);
+      }
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s v.$transitionEasing;
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    color: v.color(accent-green);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s v.$transitionEasing;
+
+    svg {
+      margin-left: 3px; // optical centering for play triangle
+    }
+  }
+
+  &__info {
+    padding: v.$spacing-sm v.$spacing-md v.$spacing-md;
+    text-align: left;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-ultra-sm;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: v.color(accent-green);
+    background: rgba(v.color(accent-green), 0.1);
+    padding: v.$spacing-xxs v.$spacing-sm;
+    border-radius: v.$borderRadius-sm;
+    margin-bottom: v.$spacing-xs;
+  }
+
+  &__card-title {
+    font-family: v.$font-family-secondary;
+    font-size: v.$font-size-sm;
+    color: v.color(text-dark);
+    margin: 0;
+    line-height: 1.4;
+  }
+}
