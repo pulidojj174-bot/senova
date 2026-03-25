@@ -43,7 +43,7 @@ export class HomeHero {
 
       const interval = setInterval(() => {
         this.activeIndex.update((i) => (i + 1) % this.slides().length);
-      }, 10000);
+      }, 20000);
 
       this.destroyRef.onDestroy(() => clearInterval(interval));
     });
